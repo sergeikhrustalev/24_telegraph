@@ -20,16 +20,16 @@ def form():
         article_id = article_storage.add(article)
         
         return redirect(
-            url_for('show_article', article_link=article_id)
+            url_for('show_article', article_id=article_id)
         )
 
     return render_template('form.html')
 
 
-@app.route('/<article_link>', methods=['GET'])
-def show_article(article_link):
+@app.route('/<article_id>', methods=['GET'])
+def show_article(article_id):
     
-    article = article_storage.get(article_link)    
+    article = article_storage.get(article_id)    
     return article.body 
 
 
