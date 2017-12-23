@@ -7,9 +7,9 @@ class Article:
 
     def __init__(self, header, signature, body):
 
-            self.header = header
-            self.signature = signature
-            self.body = body
+        self.header = header
+        self.signature = signature
+        self.body = body
 
     @classmethod
     def from_json(cls, json_string):
