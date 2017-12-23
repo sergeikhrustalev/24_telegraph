@@ -62,6 +62,8 @@ class ArticleStorage:
         with open(filepath, 'w') as file_handler:
             file_handler.write(article.jsonify)
 
+        return article_id
+
     def get(self, article_id):
 
         filepath = os.path.join(
