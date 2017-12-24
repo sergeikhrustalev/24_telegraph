@@ -11,13 +11,15 @@ def form():
 
     if request.method == 'POST':
         
-        article = Article(
-            request.form.get('header'),
-            request.form.get('signature'),
-            request.form.get('body'),
+        article_id = article_storage.add(
+            
+            Article(
+                request.form.get('header'),
+                request.form.get('signature'),
+                request.form.get('body'),
+            )
+        
         )
-
-        article_id = article_storage.add(article)
         
         return redirect(
             url_for('show_article', article_id=article_id)
@@ -29,8 +31,13 @@ def form():
 @app.route('/<article_id>', methods=['GET'])
 def show_article(article_id):
     
-    article = article_storage.get(article_id)    
-    return article.body 
+    article = article_storage.get(article_id)
+
+    return '{}<br>{}<br>{}'.format(
+        article.header,
+        article.signature,
+        article.body,
+    ) 
 
 
 if __name__ == "__main__":
