@@ -77,3 +77,13 @@ class ArticleStorage:
                 json_string = file_handler.read()
 
             return Article.from_json(json_string)
+
+    def rewrite(self, article_id, article):
+
+        filepath = os.path.join(
+            self._article_dir,
+            article_id,
+        )
+
+        with open(filepath, 'w') as file_handler:
+            file_handler.write(article.jsonify)
