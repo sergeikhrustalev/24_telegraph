@@ -39,7 +39,7 @@ def show_article(article_id):
 
     if request.method == 'POST':
 
-        article_storage.rewrite(
+        article_storage.update(
 
             article_id,
 

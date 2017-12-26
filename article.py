@@ -78,7 +78,7 @@ class ArticleStorage:
 
             return Article.from_json(json_string)
 
-    def rewrite(self, article_id, article):
+    def update(self, article_id, article):
 
         filepath = os.path.join(
             self._article_dir,
