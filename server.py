@@ -5,7 +5,7 @@ from article import Article, ArticleStorage
 
 
 app = Flask(__name__)
-app.secret_key = 'secret 12345'
+app.secret_key = '861cbe62-bdcc-4b78-a39d-1ba8427d201c'
 
 article_storage = ArticleStorage('articles')
 
@@ -25,7 +25,7 @@ def form():
 
         )
 
-        session['article_id'] = article_id
+        session[article_id] = True
 
         return redirect(
             url_for('show_article', article_id=article_id)

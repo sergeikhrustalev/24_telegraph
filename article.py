@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import uuid
 
 
 class Article:
@@ -48,11 +49,7 @@ class ArticleStorage:
     def add(self, article):
 
         epoch_time = int(time.time())
-
-        article_id = '{}-{}'.format(
-            article.header,
-            epoch_time,
-        )
+        article_id = str(uuid.uuid4())
 
         filepath = os.path.join(
             self._article_dir,

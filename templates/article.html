@@ -32,7 +32,7 @@
         <p class="text-primary">{{ signature }}</p>
         <p>{{ body }}</p>
 
-      {% if session['article_id'] == article_id %}    
+      {% if article_id in session %}    
       <form method="POST">
         <div class="form-group">
           <input name="header" class="form-control" placeholder="Заголовок" value="{{ header }}" autofocus/>
